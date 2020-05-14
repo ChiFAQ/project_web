@@ -311,8 +311,8 @@ def load_user(user_id):
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 8080))
     db_session.global_init("db/blogs.sqlite")
     api.add_resource(news_resources.NewsListResource, '/api/news')
     api.add_resource(news_resources.NewsResource, '/api/news/<int:news_id>')
-    app.run(host='127.0.0.1', port=port)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
